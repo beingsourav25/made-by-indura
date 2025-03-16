@@ -1,0 +1,161 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f2;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    color: #ff4081;
+}
+
+#compliment {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 20px 0;
+    background: linear-gradient(90deg, #ff4081, #ff7eb3, #ffa4c5, #ff4081);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorFlow 3s infinite alternate;
+    display: inline-block;
+    color: inherit; /* Ensure that the color of the text is inherited from the gradient */
+}
+
+#compliment span {
+    color: inherit; /* Make sure the color of emojis is also influenced by the gradient */
+    display: inline-block;
+}
+
+@keyframes colorFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+
+button {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #e91e63;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.7);
+}
+
+button:focus {
+    outline: 3px solid #ff4081;
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+}
+
+#secret-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ff4081;
+    text-shadow: 0 0 10px #ff4081, 0 0 20px #ff7eb3;
+}
+
+#funny-image {
+    width: 150px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+/* Floating Heart Animation */
+.heart {
+    position: fixed;
+    font-size: 2rem;
+    top: -10px;
+    animation: floatUp 6s linear forwards;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* "I ❤️ You" Popup */
+#love-popup {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #ff4081;
+    text-shadow: 3px 3px 8px #ffb3c1;
+    display: none;
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Background Video */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    animation: fadeInVideo 1.5s forwards;
+}
+
+@keyframes fadeInVideo {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Media Query for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    #compliment {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    #secret-message {
+        font-size: 1.2rem;
+    }
+
+    #funny-image {
+        width: 120px;
+    }
+
+    #love-popup {
+        font-size: 2.5rem;
+    }
+}
